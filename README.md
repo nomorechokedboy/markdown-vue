@@ -1,21 +1,26 @@
 # VueJS version of `react-markdown`
 
+[![codecov](https://codecov.io/github/nomorechokedboy/markdown-vue/branch/main/graph/badge.svg?token=8USH85MRVT)](https://codecov.io/github/nomorechokedboy/markdown-vue)
+[![CI workflows](https://github.com/nomorechokedboy/markdown-vue/actions/workflows/ci.yml/badge.svg)](https://github.com/nomorechokedboy/markdown-vue/actions/workflows/ci.yml)
+[![CD workflows](https://github.com/nomorechokedboy/markdown-vue/actions/workflows/cd.yaml/badge.svg)](https://github.com/nomorechokedboy/markdown-vue/actions/workflows/cd.yaml)
+
 Vue component to render markdown without using `innerHTML`
 
 ## Feature highlights
 
-- [x] **Safe** by default (no `innerHTML` or XSS attacks)
-- [x] Extensible (you can pass your own component to use instead of `<h1>` for `# hi`)
-- [x] Plugins (support remark and rehype plugins)
+- [x] [**Safe**](https://github.com/remarkjs/react-markdown#security) by default (no `innerHTML` or XSS attacks)
+- [x] [Extensible](https://github.com/remarkjs/react-markdown#appendix-b-components) (you can pass your own component to use instead of `<h1>` for `# hi`)
+- [x] [Plugins](https://github.com/remarkjs/react-markdown#plugins) (support [remark](https://github.com/remarkjs/remark) and [rehype](https://github.com/rehypejs/rehype) plugins)
 
 The implementation is 90% shamelessly copied from https://github.com/remarkjs/react-markdown.
 
 Changes include:
 
-- Replacing React specific component creation with VueJS components
-- Porting the implementation from javascript with JSDoc types to typescript
-- Testing with vitest instead of nodejs built-in test module
-- Development and preview with histoire
+- Replacing `React` specific component creation with `VueJS` components
+- Porting the implementation from `javascript` with `JSDoc` types to `typescript`
+- Testing with `Vitest` instead of nodejs built-in test module
+- Development and preview with `Histoire`
+- Using `Vite` instead of `esbuild`
 
 Please check the original repo for in-depth details on how to use.
 
@@ -43,5 +48,5 @@ pnpm install markdown-vue # using pnpm
 
 ## TODO
 
-- [ ] Port unit tests from from original library (wip)
-- [ ] Playground with github page (wip)
+- [x] Port unit tests from from original library
+- [x] Playground with github page
