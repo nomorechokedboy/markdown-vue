@@ -33,7 +33,7 @@ jobs:
                           run: |
                                   pnpm i --frozen-lockfile
                                   pnpm story:build
-                                  sed 's/\/assets/.\/assets/g' dist/index.html
+                                  sed -i 's/\/assets/.\/assets/g' dist/index.html
                         #   fix MIME type github page:
                         #   https://stackoverflow.com/questions/59047455/disallowed-mime-type-text-html-error-angular-github-pages
 
