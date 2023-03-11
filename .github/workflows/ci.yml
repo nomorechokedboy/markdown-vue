@@ -1,0 +1,41 @@
+name: CI workflows
+on:
+        push:
+                branches:
+                        - main
+        pull_request:
+                branches:
+                        - dev
+                        - main
+
+jobs:
+        build-and-test:
+                runs-on: ubuntu-latest
+
+                strategy:
+                        matrix:
+                                node-version: [14.x, 16.x, 18.x]
+
+                steps:
+                        - name: Checkout
+                          uses: actions/checkout@v3
+
+                        - name: Install pnpm
+                          uses: pnpm/action-setup@v2
+                          with:
+                                  version: 7.8.0
+
+                        - name: Use Node.js ${{ matrix.node-version }}
+                          uses: actions/setup-node@v2
+                          with:
+                                  node-version: ${{ matrix.node-version }}
+                                  cache: 'pnpm'
+
+                        - name: Install deps, lint, and test
+                          run: |
+                                  pnpm i --frozen-lockfile
+                                  pnpm lint
+                                  pnpm coverage
+
+                        - name: Codecov
+                          uses: codecov/codecov-action@v3

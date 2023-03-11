@@ -72,9 +72,12 @@ const file = new VFile()
 file.value = source
 const hastNode = processor.runSync(processor.parse(file), file)
 
+if (hastNode.type !== 'root') {
+	throw new TypeError('Expected a `root` node')
+}
+
 let result = h(
 	Fragment,
-	{},
 	childrenToVue(
 		{
 			schema: html,
