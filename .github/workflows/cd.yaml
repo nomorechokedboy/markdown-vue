@@ -34,6 +34,7 @@ jobs:
                                   pnpm i --frozen-lockfile
                                   pnpm story:build
                                   sed -i 's/\/assets/.\/assets/g' dist/index.html dist/__sandbox.html
+                                  grep -nrl 'const base = "/";' dist | xargs sed -i 's/const base = \"\/\"/const base = \".\/\"/'
                         #   fix MIME type github page:
                         #   https://stackoverflow.com/questions/59047455/disallowed-mime-type-text-html-error-angular-github-pages
 
