@@ -1,0 +1,12 @@
+{
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"composite": true,
+		"outDir": "dist"
+	},
+	"exclude": [
+		"lib/storyFixture.ts",
+		"lib/VueMarkdown.stories.vue",
+		"lib/VueMarkdown.test.ts"
+	]
+}

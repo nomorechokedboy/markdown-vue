@@ -11,13 +11,7 @@
 		"esModuleInterop": true,
 		"lib": ["ESNext", "DOM"],
 		"skipLibCheck": true,
-		"noEmit": true,
-		"types": [
-			"vue/types",
-			"vitest/globals",
-			"vitest/importMeta",
-			"node_modules/@types"
-		],
+		"types": ["vitest/globals", "vitest/importMeta"],
 		"baseUrl": "."
 	},
 	"include": [
