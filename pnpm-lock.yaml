@@ -25,6 +25,7 @@ specifiers:
         remark-gfm: ^3.0.1
         remark-parse: ^10.0.1
         remark-rehype: ^10.1.0
+        remark-toc: ^8.0.1
         space-separated-tokens: ^2.0.2
         style-to-object: ^0.4.1
         typescript: ^4.9.5
@@ -69,6 +70,7 @@ devDependencies:
         prettier: 2.8.4
         rehype-raw: 6.1.1
         remark-gfm: 3.0.1
+        remark-toc: 8.0.1
         typescript: 4.9.5
         vite: 4.1.4_@types+node@18.15.0
         vitest: 0.28.5_jsdom@21.1.0
@@ -1464,6 +1466,13 @@ packages:
                         }
                 dependencies:
                         '@types/ms': 0.7.31
+
+        /@types/extend/3.0.1:
+                resolution:
+                        {
+                                integrity: sha512-R1g/VyKFFI2HLC1QGAeTtCBWCo6n75l41OnsVYNbmKG+kempOESaodf6BeJyUM3Q0rKa/NQcTHbB2+66lNnxLw==
+                        }
+                dev: true
 
         /@types/flexsearch/0.7.3:
                 resolution:
@@ -4033,6 +4042,13 @@ packages:
                         through2: 4.0.2
                 dev: true
 
+        /github-slugger/2.0.0:
+                resolution:
+                        {
+                                integrity: sha512-IaOQ9puYtjrkq7Y0Ygl9KDZnrf/aiUJYUpVf89y8kyaxbRG7Y1SrX/jaumrv81vc61+kiMempujsM3Yw7w5qcw==
+                        }
+                dev: true
+
         /glob-parent/5.1.2:
                 resolution:
                         {
@@ -5748,6 +5764,21 @@ packages:
                 dependencies:
                         '@types/mdast': 3.0.10
 
+        /mdast-util-toc/6.1.1:
+                resolution:
+                        {
+                                integrity: sha512-Er21728Kow8hehecK2GZtb7Ny3omcoPUVrmObiSUwmoRYVZaXLR751QROEFjR8W/vAQdHMLj49Lz20J55XaNpw==
+                        }
+                dependencies:
+                        '@types/extend': 3.0.1
+                        '@types/mdast': 3.0.10
+                        extend: 3.0.2
+                        github-slugger: 2.0.0
+                        mdast-util-to-string: 3.1.1
+                        unist-util-is: 5.2.1
+                        unist-util-visit: 4.1.2
+                dev: true
+
         /mdurl/1.0.1:
                 resolution:
                         {
@@ -6999,6 +7030,17 @@ packages:
                         mdast-util-to-hast: 12.3.0
                         unified: 10.1.2
                 dev: false
+
+        /remark-toc/8.0.1:
+                resolution:
+                        {
+                                integrity: sha512-7he2VOm/cy13zilnOTZcyAoyoolV26ULlon6XyCFU+vG54Z/LWJnwphj/xKIDLOt66QmJUgTyUvLVHi2aAElyg==
+                        }
+                dependencies:
+                        '@types/mdast': 3.0.10
+                        mdast-util-toc: 6.1.1
+                        unified: 10.1.2
+                dev: true
 
         /require-directory/2.1.1:
                 resolution:
