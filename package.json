@@ -53,7 +53,7 @@
 		"story:build": "histoire build",
 		"preview": "histoire preview",
 		"prepare": "husky install",
-		"prepublish": "build"
+		"prepublish": "npm run build"
 	},
 	"dependencies": {
 		"comma-separated-tokens": "^2.0.3",
