@@ -1,0 +1,111 @@
+{
+	"name": "markdown-vue",
+	"version": "0.0.0",
+	"author": "Le Ho Hai Duong <lehohaiduong2001@gmail.com> (https://www.linkedin.com/in/le-ho-hai-duong-8b7382220/)",
+	"license": "MIT",
+	"description": "Render Markdown as Vue JS components",
+	"keywords": [
+		"remark",
+		"unified",
+		"markdown",
+		"commonmark",
+		"gfm",
+		"ast",
+		"vue",
+		"vue-js",
+		"vue-js-component",
+		"component"
+	],
+	"sideEffects": false,
+	"homepage": "https://github.com/nomorechokedboy/markdown-vue",
+	"bugs": {
+		"url": "https://github.com/nomorechokedboy/markdown-vue/issues",
+		"email": "lehohaiduong2001@gmail.com"
+	},
+	"contributors": [
+		{
+			"name": "Le Ho Hai Duong",
+			"url": "https://github.com/nomorechokedboy"
+		}
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/nomorechokedboy/markdown-vue.git"
+	},
+	"files": [
+		"dist"
+	],
+	"main": "./dist/markdown-vue.umd.js",
+	"module": "./dist/markdown-vue.es.js",
+	"exports": {
+		".": {
+			"import": "./dist/markdown-vue.es.js",
+			"require": "./dist/markdown-vue.umd.js"
+		}
+	},
+	"scripts": {
+		"build": "vite build",
+		"coverage": "vitest run --coverage",
+		"dev": "histoire dev",
+		"test": "vitest",
+		"lint": "eslint .",
+		"story:build": "histoire build",
+		"preview": "histoire preview",
+		"prepare": "husky install"
+	},
+	"dependencies": {
+		"comma-separated-tokens": "^2.0.3",
+		"property-information": "^6.2.0",
+		"remark-parse": "^10.0.1",
+		"remark-rehype": "^10.1.0",
+		"space-separated-tokens": "^2.0.2",
+		"style-to-object": "^0.4.1",
+		"unified": "^10.1.2",
+		"unist-util-visit": "^4.1.2",
+		"vfile": "^5.3.7"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^17.4.4",
+		"@histoire/plugin-vue": "^0.15.7",
+		"@testing-library/jest-dom": "^5.16.5",
+		"@types/hast": "^2.3.4",
+		"@types/testing-library__jest-dom": "^5.14.5",
+		"@types/unist": "^2.0.6",
+		"@typescript-eslint/eslint-plugin": "^5.54.1",
+		"@typescript-eslint/parser": "^5.54.1",
+		"@vitejs/plugin-vue": "^4.0.0",
+		"@vitejs/plugin-vue-jsx": "^3.0.0",
+		"@vitest/coverage-c8": "^0.28.3",
+		"@vue/test-utils": "^2.2.10",
+		"eslint": "^7.32.0",
+		"histoire": "^0.15.7",
+		"husky": "^8.0.0",
+		"jsdom": "^21.1.0",
+		"lint-staged": "^13.2.0",
+		"prettier": "^2.8.4",
+		"rehype-raw": "^6.1.1",
+		"remark-gfm": "^3.0.1",
+		"typescript": "^4.9.5",
+		"vite": "^4.1.2",
+		"vitest": "^0.28.3",
+		"vue": "^3.2.47",
+		"vue-eslint-parser": "^9.1.0",
+		"vue-tsc": "^1.2.0"
+	},
+	"peerDependencies": {
+		"vue": "^3.2.47"
+	},
+	"engines": {
+		"node": ">=16.0.0"
+	},
+	"packageManager": "pnpm@7.8.0",
+	"lint-staged": {
+		"*.{ts,tsx,js,jsx,vue}": [
+			"prettier --write",
+			"eslint --fix"
+		],
+		"*.{json,yaml,yml}": [
+			"prettier --write"
+		]
+	}
+}
