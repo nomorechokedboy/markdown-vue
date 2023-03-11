@@ -1,1 +1,1 @@
-export { default as VueMarkdown } from './VueMarkdown.vue'
+export { default } from './VueMarkdown.vue'
