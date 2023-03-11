@@ -49,7 +49,7 @@
 		"coverage": "vitest run --coverage",
 		"dev": "histoire dev",
 		"test": "vitest",
-		"lint": "eslint .",
+		"lint": "eslint **/*.{ts,vue}",
 		"story:build": "histoire build",
 		"preview": "histoire preview",
 		"prepare": "husky install",

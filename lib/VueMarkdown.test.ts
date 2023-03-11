@@ -3,7 +3,6 @@ import fs from 'fs/promises'
 import raw from 'rehype-raw'
 import gfm from 'remark-gfm'
 import toc from 'remark-toc'
-import { Plugin } from 'unified'
 import { visit } from 'unist-util-visit'
 import { assert, describe, expect, it } from 'vitest'
 import { h, ref } from 'vue'
@@ -15,7 +14,6 @@ type TestTable = {
 	props: MarkdownOptions & JSX.IntrinsicAttributes
 	expected: string
 }
-const own = {}.hasOwnProperty
 const emptyLink = 'Empty: []()'
 const linkToRustLang = 'This is [a link](https://rust-lang.org/) to Rust Lang'
 const expectedNinJAImg = '<p>This is <img src="/ninJA.png" alt="an image">.</p>'
