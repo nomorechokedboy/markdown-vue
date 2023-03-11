@@ -1,6 +1,6 @@
 {
 	"name": "markdown-vue",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"author": "Le Ho Hai Duong <lehohaiduong2001@gmail.com> (https://www.linkedin.com/in/le-ho-hai-duong-8b7382220/)",
 	"license": "MIT",
 	"description": "Render Markdown as Vue JS components",

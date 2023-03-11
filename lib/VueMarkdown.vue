@@ -102,5 +102,4 @@ if (attrs.class) {
 
 <template>
 	<component :is="result" />
-	<div>Lmao</div>
 </template>
