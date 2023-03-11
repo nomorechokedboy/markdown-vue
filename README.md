@@ -1,5 +1,13 @@
 # VueJS version of `react-markdown`
 
+Vue component to render markdown without using `innerHTML`
+
+## Feature highlights
+
+- [x] **Safe** by default (no `innerHTML` or XSS attacks)
+- [x] Extensible (you can pass your own component to use instead of `<h1>` for `# hi`)
+- [x] Plugins (support remark and rehype plugins)
+
 The implementation is 90% shamelessly copied from https://github.com/remarkjs/react-markdown.
 
 Changes include:
