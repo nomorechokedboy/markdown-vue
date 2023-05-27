@@ -4,7 +4,7 @@ import remarkParse from 'remark-parse'
 import remarkRehype, { Options as RemarkRehypeOptions } from 'remark-rehype'
 import { PluggableList, unified } from 'unified'
 import { VFile } from 'vfile'
-import { Fragment, h, useAttrs } from 'vue'
+import { computed, Fragment, h, useAttrs } from 'vue'
 import { childrenToVue } from '../astToVue'
 import rehypeFilter from '../rehypeFilter'
 import type {
@@ -35,55 +35,67 @@ export interface MarkdownOptions {
         unwrapDisallowed?: boolean
 }
 
-defineProps<MarkdownOptions>()
+const props = defineProps<MarkdownOptions>()
 
-const processor = unified()
-        .use(remarkParse)
-        .use(remarkPlugins || [])
-        .use(remarkRehype, {
-                ...remarkRehypeOptions,
-                allowDangerousHtml: true
-        })
-        .use(rehypePlugins || [])
-        .use(rehypeFilter, {
-                allowedElements,
-                allowElement,
-                disallowedElements,
-                unwrapDisallowed
-        })
-const file = new VFile()
-file.value = source
-const hastNode = processor.runSync(processor.parse(file), file)
-
-if (hastNode.type !== 'root') {
-        throw new TypeError('Expected a `root` node')
-}
-
-let result = h(
-        Fragment,
-        childrenToVue(
-                {
-                        schema: html,
-                        listDepth: 0,
-                        options: {
-                                transformLinkUri,
-                                skipHtml,
-                                rawSourcePos,
-                                transformImageUri,
-                                linkTarget,
-                                includeElementIndex,
-                                sourcePos,
-                                components
-                        }
-                },
-                hastNode
-        )
+const processor = computed(() =>
+        unified()
+                .use(props.remarkPlugins || [])
+                .use(remarkRehype, {
+                        ...props.remarkRehypeOptions,
+                        allowDangerousHtml: true
+                })
+                .use(props.rehypePlugins || [])
+                .use(rehypeFilter, {
+                        allowedElements: props.allowedElements,
+                        allowElement: props.allowElement,
+                        disallowedElements: props.disallowedElements,
+                        unwrapDisallowed: props.unwrapDisallowed
+                })
 )
 
-const attrs = useAttrs()
-if (attrs.class) {
-        result = h('div', { class: attrs.class }, result)
-}
+const result = computed(() => {
+        const file = new VFile()
+        file.value = props.source
+        const hastNode = processor.value.runSync(
+                processor.value.parse(file),
+                file
+        )
+
+        if (hastNode.type !== 'root') {
+                throw new TypeError('Expected a `root` node')
+        }
+
+        let markup = h(
+                Fragment,
+                childrenToVue(
+                        {
+                                schema: html,
+                                listDepth: 0,
+                                options: {
+                                        transformLinkUri:
+                                                props.transformLinkUri,
+                                        skipHtml: props.skipHtml,
+                                        rawSourcePos: props.rawSourcePos,
+                                        transformImageUri:
+                                                props.transformImageUri,
+                                        linkTarget: props.linkTarget,
+                                        includeElementIndex:
+                                                props.includeElementIndex,
+                                        sourcePos: props.sourcePos,
+                                        components: props.components
+                                }
+                        },
+                        hastNode
+                )
+        )
+
+        const attrs = useAttrs()
+        if (attrs.class) {
+                markup = h('div', { class: attrs.class }, markup)
+        }
+
+        return markup
+})
 </script>
 
 <template>

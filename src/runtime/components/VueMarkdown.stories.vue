@@ -50,12 +50,6 @@ const rehypePlugins = computed(() => {
       </template>
       <template #default>
         <VueMarkdown
-          :key="
-            JSON.stringify({
-              gfm: state.enableGfm,
-              raw: state.enableRaw
-            })
-          "
           :rehype-plugins="rehypePlugins"
           :remark-plugins="remarkPlugins"
           :source="state.source"
