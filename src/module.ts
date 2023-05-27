@@ -16,7 +16,7 @@ export default defineNuxtModule<ModuleOptions>({
                 addComponent({
                         name: 'VueMarkdown', // name of the component to be used in vue templates
                         filePath: resolver.resolve(
-                                'runtime/components/VueMarkdown.vue'
+                                'runtime/components/VueMarkdown'
                         )
                 })
         }
