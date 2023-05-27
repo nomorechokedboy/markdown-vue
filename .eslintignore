@@ -1,3 +1,9 @@
 dist
+dist-csr
+node_modules
 *.test.ts
 *.spec.ts
+.histoire
+.nuxt
+.output
+
