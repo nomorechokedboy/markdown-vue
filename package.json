@@ -69,8 +69,8 @@
                 "test:csr": "TEST_ENV=csr vitest run",
                 "test:ssr": "TEST_ENV=ssr vitest run",
                 "test:watch": "vitest watch",
-                "story:build": "pnpm dev:prepare && histoire build",
-                "prepare": "husky install"
+                "story:build": "histoire build",
+                "prepare": "husky install && pnpm dev:prepare"
         },
         "dependencies": {
                 "@nuxt/kit": "^3.5.1",
