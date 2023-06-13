@@ -1,12 +1,18 @@
 {
-	"extends": "./tsconfig.json",
-	"compilerOptions": {
-		"composite": true,
-		"outDir": "dist"
-	},
-	"exclude": [
-		"lib/storyFixture.ts",
-		"lib/VueMarkdown.stories.vue",
-		"lib/VueMarkdown.test.ts"
-	]
+        "extends": "./tsconfig.json",
+        "compilerOptions": {
+                "composite": true,
+                "outDir": "dist-csr",
+                "noEmit": false
+        },
+        "include": ["dist/runtime"],
+        "exclude": [
+                "playground",
+                "node_modules",
+                "src/runtime/storyFixture.ts",
+                "src/runtime/VueMarkdown.stories.vue",
+                "src/runtime/VueMarkdown.test.ts",
+                "src/runtime/plugin.ts",
+                "src/module.ts"
+        ]
 }
