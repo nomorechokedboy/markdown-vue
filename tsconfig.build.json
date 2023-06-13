@@ -5,6 +5,7 @@
                 "outDir": "dist-csr",
                 "noEmit": false
         },
+        "include": ["dist/runtime"],
         "exclude": [
                 "playground",
                 "node_modules",

@@ -1,6 +1,6 @@
 {
         "name": "markdown-vue",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "author": "Le Ho Hai Duong <lehohaiduong2001@gmail.com> (https://www.linkedin.com/in/le-ho-hai-duong-8b7382220/)",
         "license": "MIT",
         "description": "Render Markdown as Vue JS components",
@@ -37,23 +37,24 @@
                 "dist-csr"
         ],
         "exports": {
+                ".": {
+                        "types": "./dist-csr/types/components/VueMarkdown.vue.d.ts",
+                        "import": "./dist-csr/markdown-vue.es.js",
+                        "require": "./dist-csr/markdown-vue.umd.js"
+                },
                 "./nuxt": {
                         "types": "./dist/types.d.ts",
                         "import": "./dist/module.mjs",
                         "require": "./dist/module.cjs"
-                },
-                ".": {
-                        "types": "./dist-csr/types/runtime/components/VueMarkdown.vue.d.ts",
-                        "import": "./dist-csr/markdown-vue.es.js",
-                        "require": "./dist-csr/markdown-vue.umd.js"
                 }
         },
         "browser": "./dist-csr/markdown-vue.umd.js",
-        "main": "./dist/module.cjs",
-        "types": "./dist-csr/types/runtime/components/VueMarkdown.vue.d.ts",
+        "main": "./dist-csr/markdown-vue.umd.js",
+        "module": "./dist-csr/markdown-vue.es.js",
+        "types": "./dist-csr/types/components/VueMarkdown.vue.d.ts",
         "scripts": {
-                "build": "pnpm clientpack & pnpm prepack",
-                "clientpack": "vite build",
+                "build": "pnpm clientpack && pnpm prepack",
+                "clientpack": "vite build && vue-tsc --emitDeclarationOnly -p tsconfig.build.json && mv dist-csr/dist/runtime dist-csr/types",
                 "coverage": "vitest run --coverage",
                 "dev": "histoire dev",
                 "dev:build": "nuxi build playground",

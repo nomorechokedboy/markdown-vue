@@ -37,8 +37,9 @@ export interface MarkdownOptions {
 
 const props = defineProps<MarkdownOptions>()
 
-const processor = computed(() =>
-        unified()
+const result = computed(() => {
+        const processor = unified()
+                .use(remarkParse)
                 .use(props.remarkPlugins || [])
                 .use(remarkRehype, {
                         ...props.remarkRehypeOptions,
@@ -51,15 +52,10 @@ const processor = computed(() =>
                         disallowedElements: props.disallowedElements,
                         unwrapDisallowed: props.unwrapDisallowed
                 })
-)
 
-const result = computed(() => {
         const file = new VFile()
         file.value = props.source
-        const hastNode = processor.value.runSync(
-                processor.value.parse(file),
-                file
-        )
+        const hastNode = processor.runSync(processor.parse(file), file)
 
         if (hastNode.type !== 'root') {
                 throw new TypeError('Expected a `root` node')
