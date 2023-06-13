@@ -55,7 +55,7 @@
         "scripts": {
                 "build": "pnpm clientpack && pnpm prepack",
                 "clientpack": "vite build && vue-tsc --emitDeclarationOnly -p tsconfig.build.json && mv dist-csr/dist/runtime dist-csr/types",
-                "coverage": "vitest run --coverage",
+                "coverage": "TEST_ENV=csr vitest run --coverage",
                 "dev": "histoire dev",
                 "dev:build": "nuxi build playground",
                 "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
