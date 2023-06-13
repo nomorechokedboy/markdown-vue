@@ -33,7 +33,7 @@ jobs:
 
                         - name: Install deps, lint, and test
                           run: |
-                                  pnpm i
+                                  pnpm i --no-frozen-lockfile
                                   pnpm lint
                                   pnpm coverage
 
