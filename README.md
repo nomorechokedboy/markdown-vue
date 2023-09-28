@@ -104,7 +104,7 @@ Currently, your page will be crash if you use this component in Nuxt project dev
 
 - [x] Port unit tests from from original library
 - [x] Playground with github page
-- [ ] Fix `NuxtJs` dev error
+- [x] Fix `NuxtJs` dev error (fixed by [@starknt](https://github.com/starknt))
 
 <!-- Badges -->
 
