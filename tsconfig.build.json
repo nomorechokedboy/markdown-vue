@@ -13,6 +13,7 @@
                 "src/runtime/VueMarkdown.stories.vue",
                 "src/runtime/VueMarkdown.test.ts",
                 "src/runtime/plugin.ts",
-                "src/module.ts"
+                "src/module.ts",
+                "dist/runtime/plugin.ts"
         ]
 }
