@@ -1,1 +1,1 @@
-export { default } from '../dist/runtime/components/VueMarkdown.vue'
+export { default } from './runtime/components/VueMarkdown.vue'

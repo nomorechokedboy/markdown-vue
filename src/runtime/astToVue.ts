@@ -31,8 +31,10 @@ export function childrenToVue(context: Context, node: Root | Element) {
                         ) {
                                 children.push(child.value)
                         }
+                        // @ts-ignore
                 } else if (child.type === 'raw' && !context.options.skipHtml) {
                         // Default behavior is to show (encoded) HTML.
+                        // @ts-ignore
                         children.push(child.value)
                 }
         }

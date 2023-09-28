@@ -2,6 +2,7 @@ import { defineConfig } from 'vitest/config'
 import { loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
+import dts from 'vite-plugin-dts'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -40,7 +41,7 @@ export default defineConfig(({ mode }) => {
                         },
                         outDir: 'dist-csr'
                 },
-                plugins: [vue()],
+                plugins: [vue(), dts()],
                 test,
                 server: {
                         watch: {
