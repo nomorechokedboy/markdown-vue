@@ -1215,17 +1215,17 @@ describe.skipIf(isSSRTest)('VueMarkdown', () => {
         })
 
         it('should render the whole specturm of markdown within a single run', async () => {
-                const inputUrl = new URL(
+                const inputUrl: string | Buffer | URL = new URL(
                         'fixtures/runthrough.md',
                         import.meta.url
                 )
-                const expectedUrl = new URL(
+                const expectedUrl: string | Buffer | URL = new URL(
                         'fixtures/runthrough.html',
                         import.meta.url
                 )
                 const promises = await Promise.all([
-                        fs.readFile(inputUrl.toString()),
-                        fs.readFile(expectedUrl.toString())
+                        fs.readFile(inputUrl),
+                        fs.readFile(expectedUrl)
                 ])
                 const [input, expected] = promises.map((promise) =>
                         String(promise)
