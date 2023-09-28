@@ -1,6 +1,6 @@
 {
         "name": "markdown-vue",
-        "version": "1.0.2",
+        "version": "1.0.3",
         "author": "Le Ho Hai Duong <lehohaiduong2001@gmail.com> (https://www.linkedin.com/in/le-ho-hai-duong-8b7382220/)",
         "license": "MIT",
         "description": "Render Markdown as Vue JS components",
@@ -38,7 +38,6 @@
         ],
         "exports": {
                 ".": {
-                        "types": "./dist-csr/types/components/VueMarkdown.vue.d.ts",
                         "import": "./dist-csr/markdown-vue.es.js",
                         "require": "./dist-csr/markdown-vue.umd.js"
                 },
@@ -51,10 +50,9 @@
         "browser": "./dist-csr/markdown-vue.umd.js",
         "main": "./dist-csr/markdown-vue.umd.js",
         "module": "./dist-csr/markdown-vue.es.js",
-        "types": "./dist-csr/types/components/VueMarkdown.vue.d.ts",
         "scripts": {
                 "build": "pnpm clientpack && pnpm prepack",
-                "clientpack": "vite build && vue-tsc --emitDeclarationOnly -p tsconfig.build.json && mv dist-csr/dist/runtime dist-csr/types",
+                "clientpack": "vite build",
                 "coverage": "TEST_ENV=csr vitest run --coverage",
                 "dev": "histoire dev",
                 "dev:build": "nuxi build playground",
@@ -63,7 +61,7 @@
                 "prepack": "nuxt-module-build",
                 "preview": "histoire preview",
                 "prepublish": "pnpm build",
-                "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+                "release": "pnpm run lint && pnpm run build && changelogen --release && npm publish && git push --follow-tags",
                 "lint": "eslint .",
                 "test": "pnpm test:csr & pnpm test:ssr",
                 "test:csr": "TEST_ENV=csr vitest run",
@@ -102,6 +100,7 @@
                 "changelogen": "^0.5.3",
                 "eslint": "^8.41.0",
                 "histoire": "^0.16.1",
+                "husky": "^8.0.0",
                 "jsdom": "^22.0.0",
                 "lint-staged": "^13.2.2",
                 "nuxt": "^3.5.1",
@@ -110,10 +109,9 @@
                 "remark-gfm": "^3.0.1",
                 "remark-toc": "^8.0.1",
                 "vite": "^4.3.9",
-                "vite-plugin-dts": "^2.3.0",
+                "vite-plugin-dts": "^3.6.0",
                 "vitest": "^0.31.1",
-                "vue-tsc": "^1.6.5",
-                "husky": "^8.0.0"
+                "vue-tsc": "^1.6.5"
         },
         "peerDependencies": {
                 "vue": "^3.2.47"

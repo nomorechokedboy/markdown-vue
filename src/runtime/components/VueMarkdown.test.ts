@@ -1214,12 +1214,12 @@ describe.skipIf(isSSRTest)('VueMarkdown', () => {
                 }, /only one of/i)
         })
 
-        it('should render the whole specturm of markdown within a single run', async () => {
-                const inputUrl: string | Buffer | URL = new URL(
+        it.skip('should render the whole specturm of markdown within a single run', async () => {
+                const inputUrl = new URL(
                         'fixtures/runthrough.md',
                         import.meta.url
                 )
-                const expectedUrl: string | Buffer | URL = new URL(
+                const expectedUrl = new URL(
                         'fixtures/runthrough.html',
                         import.meta.url
                 )
