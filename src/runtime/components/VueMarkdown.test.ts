@@ -1224,8 +1224,8 @@ describe.skipIf(isSSRTest)('VueMarkdown', () => {
                         import.meta.url
                 )
                 const promises = await Promise.all([
-                        fs.readFile(inputUrl),
-                        fs.readFile(expectedUrl)
+                        fs.readFile(inputUrl.toString()),
+                        fs.readFile(expectedUrl.toString())
                 ])
                 const [input, expected] = promises.map((promise) =>
                         String(promise)
